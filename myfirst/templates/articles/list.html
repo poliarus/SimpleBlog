@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}List of articles{% endblock %}
+
+{% block content %}
+<div>
+    {% if latest_articles_list %}
+        {% for a in latest_articles_list %}
+            <span><a href="{% url 'articles:detail' a.id %}">{{ a.article_title }}</a></span>
+        {% endfor %}
+    {% else %}
+        <p>Статьи не найдены</p>
+    {% endif %}
+</div>
+{% endblock %}
